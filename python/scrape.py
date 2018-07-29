@@ -1,11 +1,12 @@
 """Scrape SFUSD school information page for features of a school."""
 
-import requests
+import ast
 from bs4 import BeautifulSoup
-import urllib2
-import simplejson
 import cStringIO
+import requests
+import simplejson
 import ssl
+import urllib2
 
 
 def get_school_info(url):
@@ -79,3 +80,31 @@ def extract_text_from_beginning(paragraph_text, school):
 				school["Address"] = line.strip()
 
 school = get_school_info("http://www.sfusd.edu/en/schools/school-information/balboa.html")
+
+def get_great_schools_info(url, school):
+	"""Get school reviews from GreatSchools.com.
+	Args:
+		url: link address for school's webpage on GreatSchools.com
+		school: dict of the feature names and texts for a school. Adds
+			reviews to this dict.
+
+	"""
+	page = requests.get(url, verify=False)
+	soup = BeautifulSoup(page.content, 'html.parser')
+	scripts = list(soup.find_all('script', {"data-component-name": 'Reviews'}))
+	reviews = parse_review_text(scripts[0].get_text())
+	school['reviews'] = reviews
+
+def parse_review_text(text):
+	split_by_commas = text.split(",")
+	split_by_colons = []
+	for segment in split_by_commas:
+		split_by_colons.extend(segment.split(":"))
+	reviews = []
+	for i in range(len(split_by_colons)-1):
+		if split_by_colons[i] == '{"comment"':
+			reviews.append(split_by_colons[i+1])
+	return reviews
+
+get_great_schools_info("https://www.greatschools.org/california/san-francisco/6340-Balboa-High-School/")
+
