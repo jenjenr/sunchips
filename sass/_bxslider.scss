@@ -1,0 +1,26 @@
+.slider {
+    border: 1px solid #d8d8d8;
+}
+.slider img {
+    width: 100%;
+}
+.bx-wrapper .bx-prev {
+    left: -50px !important;
+}
+.bx-wrapper .bx-next {
+    right: -50px !important;
+}
+.bx-wrapper .bx-controls-direction a {
+    z-index: 88 !important;
+}
+.carousel-control.right,
+.carousel-control.left {
+    background-image: none;
+    color: #666;
+}
+.carousel-control.right {
+    right: -45px;
+}
+.carousel-control.left {
+    left: -45px;
+}

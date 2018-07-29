@@ -1,0 +1,585 @@
+@import "compass/reset";
+@import "bootstrap-compass";
+@import "bootstrap-variables";
+@import "bootstrap";
+@import "compass/css3";
+@import "mixins";
+@import "navbar";
+@import "portfolio_alma";
+@import "bxslider";
+@import "hamburgers/hamburgers";
+
+@font-face {
+    font-familiy: 'Glyphicons Halflings';
+    src: url('../jenjenroth/fonts/bootstrap/glyphicons-halflings-regular.woff2') format('woff'); // EDIT: Change fonts to font the name of th woff-file
+    font-weight: normal;
+    font-style: normal;
+}
+section {
+    display: block;
+}
+body {
+    position: relative;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.6rem;
+    height: 100%;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+}
+h1, h2 {
+	font-family: "Noto Sans Light", "Open Sans Light", Helvetica, sans-serif;
+	font-weight: lighter;
+}
+h1 {
+    font-size: 6rem;
+    margin: 5rem auto 4rem;
+}
+h2 {
+    font-size: 4rem;
+    line-height: 5.5rem;
+    margin: 80px 0 25px;
+}
+h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+h4 {
+    margin: 20px auto;
+}
+p {
+    line-height: 2.5rem;
+    margin-bottom: 2rem;
+
+    &.no-margins {
+        margin: 0 0 0 0;
+    }
+}
+.p-5x {
+    font-size: 4.5rem;
+    line-height: 6.5rem;
+    margin-right: 10px;
+}
+.stacked-label {
+    line-height: 1.9rem;
+    margin-top: 13px;
+
+}
+ul, ol {
+    li {
+        margin-left: 20px;
+    }
+}
+ul {
+    li {
+        list-style: circle;
+
+        li {
+            list-style: disc;
+        }
+    }
+}
+
+.flex-container  {
+    @include display-flex();
+    @include flex-flow(row wrap);
+    @include justify-content(flex-start);
+}
+.flex-item {
+    padding: 10rem;
+    text-align: center;
+    background: #ccc;
+}
+.justify-content-center {
+    @include align-items(top);
+    @include display-flex();
+    @include justify-content(center);
+    width: 100%;
+}
+blockquote {
+    display: block;
+    padding: 50px;
+}
+.row {
+    margin-bottom: 20px;
+}
+.row.no-margin {
+    margin-bottom: 0;
+}
+.full-height {
+    position: relative;
+    height: 100vh;
+}
+img { 
+    box-sizing: border-box; 
+}
+img.full-width {
+    width: 100%;
+}
+img.border {
+    border: solid 1px #f0f4f7;
+}
+.caption {
+    padding: 20px;
+    font-size: 1.4rem;
+    font-style: italic;
+}
+.bg-grey {
+    background: #f0f4f7;
+}
+.bg-white {
+    background: white;
+}
+.grey {
+    color: #666;
+}
+.content .container {
+    padding-bottom: 100px;
+}
+//
+//      Hero        
+//
+
+.jenjen-hero-image {
+    background: url("../img/hero-small.png") no-repeat center;
+    background-size: cover;
+}
+.hero-copy {
+    position: absolute;
+    top: 40%;
+    left: 7%;
+    width: 450px;
+
+    h1 {
+        margin: 0;
+        font-size: 10.5rem;
+        color: linear-gradient(to right, #30CFD0 0%, #330867 100%);
+    }
+    h2 {
+        margin: 0;
+        font-size: 3.1rem;
+        line-height: 4rem;
+    }
+}
+.ico-downArrow {
+    width: 5rem;
+    height: 5rem;
+    border: 2px solid;
+    @include border-radius(100px);
+    @include centerer;
+    top: unset;
+    bottom: 0;
+    box-shadow: bottom-shadow(2);
+
+    .fas {
+        @include centerer;
+    }
+}
+
+//
+//      About Jen       
+//
+
+.aboutJen {
+    padding-top: 40px;
+
+    .container {
+        z-index: 80;
+    }
+    p {
+        margin-bottom: 0;
+    }
+
+    &.colorful {
+        background:
+            -webkit-linear-gradient(45deg, hsla(340, 100%, 73%, 1) 0%, hsla(340, 100%, 73%, 0) 70%),
+            -webkit-linear-gradient(315deg, hsla(225, 95%, 51%, 1) 10%, hsla(225, 95%, 51%, 0) 80%),
+            -webkit-linear-gradient(225deg, hsla(140, 90%, 79%, 1) 10%, hsla(140, 90%, 79%, 0) 80%),
+            -webkit-linear-gradient(135deg, hsla(30, 75%, 100%, 1) 100%, hsla(30, 75%, 100%, 0) 70%);
+        background:
+            linear-gradient(45deg, hsla(340, 100%, 73%, 1) 0%, hsla(340, 100%, 73%, 0) 70%),
+            linear-gradient(135deg, hsla(225, 95%, 51%, 1) 10%, hsla(225, 95%, 51%, 0) 80%),
+            linear-gradient(225deg, hsla(140, 90%, 79%, 1) 10%, hsla(140, 90%, 79%, 0) 80%),
+            linear-gradient(315deg, hsla(30, 75%, 100%, 1) 100%, hsla(30, 75%, 100%, 0) 70%);
+        }
+    .pattern-underlay {
+        width: 100%;
+        background: url("../img/pattern-mts.png") repeat;
+    }
+    .pattern-overlay {
+        width: 100%;
+        background: url("../img/pattern-planes.png") repeat;
+        z-index: 89;
+    }
+
+    img {
+        width: 100%;
+    }
+}
+
+.effect2
+{
+  position: relative;
+}
+.effect2:before, .effect2:after
+{
+  z-index: -1;
+  position: absolute;
+  content: "";
+  bottom: 15px;
+  left: 10px;
+  width: 50%;
+  top: 80%;
+  max-width:300px;
+  background: #000;
+  -webkit-box-shadow: 0 15px 10px #000;
+  -moz-box-shadow: 0 15px 10px #000;
+  box-shadow: 0 15px 10px #000;
+  -webkit-transform: rotate(-3deg);
+  -moz-transform: rotate(-3deg);
+  -o-transform: rotate(-3deg);
+  -ms-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+}
+.effect2:after
+{
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  -o-transform: rotate(3deg);
+  -ms-transform: rotate(3deg);
+  transform: rotate(3deg);
+  right: 10px;
+  left: auto;
+}
+
+//
+//      Portfolio Links        
+//
+
+hr {
+    clear: both;
+}
+.portfolio {
+
+    .container {
+        //padding-top: 30px;
+    }
+}
+#portfolio .portfolio-link:first-child {
+    margin-top: 0;
+}
+.portfolio-link {
+    background: white;
+    text-align: center;
+    padding: 45px;
+    margin: 40px 0;
+
+    h2 {
+        margin-bottom: 15px;
+        font-weight: normal;
+    }
+    .usda-logo,
+    .va-logo {
+        margin: 30px auto 20px;
+        width: 100%;
+        max-width: 280px;
+    }
+    .btn {
+        margin: 20px auto 40px;
+    }
+}
+.btn-outline-info {
+    color: #17a2b8;
+    background-color: transparent;
+    background-image: none;
+    border-color: #17a2b8;
+
+    &:hover {
+        color: #fff;
+        background-color: #17a2b8;
+        border-color: #17a2b8;
+    }
+}
+
+//
+//      Portfolio Pages         
+//
+
+.mast-head {
+    padding-bottom: 60px;
+}
+.info-statistic-block {
+    padding: 30px 30px 8px;
+    text-align: center;
+    .far,
+    .fas {
+        display: block;
+    }
+}
+.info-statistic {
+    display: inline-block;
+    text-align: left;
+}
+
+//
+//      Footer         
+//
+
+footer {
+    padding: 100px 40px 100px;
+    color: white;
+    background: #330867;
+   //background: linear-gradient(to right, #30CFD0 0%, #330867 100%);
+
+    h2 {
+        margin: 0 0 10px;
+    }
+    h3 {
+        font-size: 2rem;
+        font-weight: normal;
+        margin-bottom: 60px;
+    }
+    hr {
+        border:none;
+        height: 20px;
+        width: 90%;
+        height: 50px;
+        margin-top: 0;
+        border-bottom: 1px solid #1f1209;
+        box-shadow: 0 20px 20px -20px #333;
+        margin: -50px auto 10px; 
+    }
+    .portfolio-link {
+        padding: 10px;
+        box-shadow: 0 5px 4px -6px #777;
+    }
+
+    .beattheb0t {
+        display: none;
+    }
+}
+
+.social-links a {
+    margin-right: 20px;
+    color: white;
+    opacity: 0.8;
+    font-size: 2rem;
+}
+
+.gradient-button {
+    font-size: 16px;
+    margin: 10px 0;
+    padding: 10px 30px;
+    text-align: center;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: #FFF;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    cursor: pointer;
+    display: inline-block;
+}
+.gradient-button:hover{
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    margin: 8px 10px 12px;
+}
+.gradient-button-3 {background-image: linear-gradient(to right, #7474BF 0%, #348AC7 51%, #7474BF 100%)}
+.gradient-button-3:hover { background-position: right center; }
+.down-dent {
+    position: relative;
+    top: 100px;
+}
+
+.pic-3 {
+    clear: left;
+}
+.aboutJen .card {
+    background: white;
+    padding: 20px 20px 30px;
+    margin-bottom: 100px;
+
+    img {
+        margin-bottom: 20px;
+    }
+}
+
+.btn-lg {
+    font-size: 16px;
+}
+//
+//      Media Queries      
+//
+
+@media only screen and (max-width: 480px) {
+    .white-content h1 span {
+        display: block;
+    }
+
+    .white-content .btn {
+        margin: 10px 0;
+    }
+
+    .down-dent {
+        top: 0;
+    }
+}
+@media (max-width: 768px) {
+    .white-content h1 span {
+        display: block;
+    }
+
+    .white-content .btn {
+        margin: 10px 0;
+    }
+
+    .down-dent {
+        top: 0;
+    }
+    .card {
+        margin: auto 15px;
+    }
+    .aboutJen .container {
+        //padding: 0 0 50px;
+    }
+}
+
+.portfolio {
+
+    font-size: 1.6rem;
+
+    .section-row {
+        clear: both;
+        padding: 80px 0;
+
+        &.bg-alt {
+            background-color: #F3F7F6;
+        }
+        &.bg-feature {
+            position: relative;
+            z-index: 99;
+            background: #67D7DA;
+            box-shadow: -2px 1px 13px rgba(0, 0, 0, 0.5)  ; 
+	-webkit-box-shadow: -2px 1px 13px rgba(0, 0, 0, 0.5)  ; 
+	-moz-box-shadow: -2px 1px 13px rgba(0, 0, 0, 0.5)  ; 
+
+            h2 {
+                margin: 0 0 80px;
+                color: white;
+            }
+        }
+    }
+    h2.wHighlight {
+        font-size: 2rem;
+        color: #9B9B9B;
+        margin: 0;
+    }
+    p.highlight {
+        font-size: 3rem;
+        line-height: 4.3rem;
+    }
+
+    .center {
+        text-align: center;
+    }
+    .btn-bar-seeMore {
+        position: relative;
+        z-index: 10;
+        display: block;
+        background-color: #47ACB2;
+        line-height: 6rem;
+        color: white;
+    }
+    .btn-tab {
+        width: 100px;
+        position: absolute;
+        top: 40px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        padding: 0 35px;
+        border-radius: 0 0 50px 50px;
+        background-color: #47ACB2;
+        color: white;
+    }
+    &.alma {
+        nav {
+            justify-content: space-between;
+            background-color: #67D9DD;
+            padding: 10px;
+
+            a {
+                color: #fff;
+            }
+            
+        }
+        header {
+            background: #61A6B2 url("../img/alma-header.png") no-repeat;
+            background-size: cover;
+
+            .btn {
+                font-size: 1.6rem;
+            
+                .fas {
+                    position: relative;
+                    top: 3px;
+                    margin-left: 10px;
+                    font-size: 1.6rem;
+                }
+            }
+
+            .feature  {
+               
+                text-align: center;
+                
+                h1 {
+                    margin-bottom: 10px;
+                }
+                p:first-of-type {
+                    font-size: 1.6rem;
+                }
+                p:nth-of-type(2) {
+                    text-align: left;
+                    padding: 0 30px 0 75px
+                }
+                p {
+                    font-size: 1.8rem;
+                    color: white;
+                    line-height: 3.2rem;
+                    margin-bottom: 40px;
+                }
+                a.btn {
+                    border-radius: 50px;
+                    background-color: #47ACB2;
+                    border: none;
+                    padding: 10px 30px;
+                    color: white;
+
+                    .fas {
+                        top: 2px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.d-flex {
+    display: flex;
+}
+.hide-text {
+    position: absolute;
+    text-indent: -9999px;
+}
+footer {
+    clear: left;
+}
+
+.fixed-nav {    
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+}

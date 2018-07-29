@@ -1,0 +1,86 @@
+//
+//      Bootstrap overrides         
+//
+
+.navbar-wrapper {
+    z-index: 99;
+    background: white;
+    box-shadow: bottom-shadow(1);
+}
+.navbar {
+    margin: 10px 0;
+}
+.navbar-static-top {
+    border-width: 0;
+}
+.navbar-brand {
+    font-family: 'Kaushan Script', cursive;
+    font-size: 3rem;
+   
+    background: linear-gradient(to right, #30CFD0 0%, #330867 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+.navbar-nav>li>a {
+    padding-bottom: 13px;
+    border-bottom: 2px solid transparent;
+}
+.navbar-nav > li > a.active {
+    background: none;
+    outline: 0;
+    border-bottom: 2px solid #00B790;
+}
+.navbar-wrapper li {
+    font-family: 'Open+Sans', sans-serif;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 100;
+    letter-spacing: 3px;
+}
+.icon-bar {
+    background:#330867;
+}
+
+//
+//      Sticky Header Styles         
+//
+
+.hp .container {
+    position: relative; 
+    top: 50px;
+}
+.navbar-wrapper .container {
+    top: 0;
+}
+/* The sticky class is added to the header with JS when it reaches its scroll position */
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+   padding-top: 70px;
+}
+
+
+.nav>li>a:hover,
+.nav>li>a:focus {
+    background: #f0f4f7;
+}
+
+
+@media (max-width: 767px) {
+    .navbar-wrapper.is-active {
+        height: 100vh;
+
+        .navbar-nav {
+            text-align: right;
+        }
+        .navbar-nav>li>a.active {
+            border-bottom: 0;
+        }
+
+    }
+}
