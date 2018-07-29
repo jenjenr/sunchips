@@ -5,7 +5,6 @@
 @import "compass/css3";
 @import "mixins";
 @import "navbar";
-@import "portfolio_alma";
 @import "bxslider";
 @import "hamburgers/hamburgers";
 
@@ -330,7 +329,7 @@ hr {
 footer {
     padding: 100px 40px 100px;
     color: white;
-    background: #330867;
+    background: #002747;
    //background: linear-gradient(to right, #30CFD0 0%, #330867 100%);
 
     h2 {
@@ -582,4 +581,30 @@ footer {
     position: fixed;
     top: 0;
     z-index: 999;
+}
+
+.item-card {
+    padding: 25px;
+    margin: 20px 0;
+    box-shadow: 0 1.5px 4px rgba(0,0,0,0.24);
+
+    h2,h3  {
+        margin-top: 0;
+    }
+    .item-info {
+        margin: 0;
+    }
+}
+.fas {
+    margin-right: 4px;
+}
+.navbar-brand {
+    padding: 10px;
+    height: auto;
+}
+.navbar-nav {
+    margin: 10px 0;
+}
+.navbar {
+    margin-left: 10px;
 }
