@@ -94,6 +94,7 @@ def get_great_schools_info(url, school):
 	scripts = list(soup.find_all('script', {"data-component-name": 'Reviews'}))
 	reviews = parse_review_text(scripts[0].get_text())
 	school['reviews'] = reviews
+	get_test_scores(soup, school)
 
 def parse_review_text(text):
 	split_by_commas = text.split(",")
@@ -106,5 +107,15 @@ def parse_review_text(text):
 			reviews.append(split_by_colons[i+1])
 	return reviews
 
-get_great_schools_info("https://www.greatschools.org/california/san-francisco/6340-Balboa-High-School/")
+def get_test_scores(soup, school):
+	scores = list(soup.find_all(class_="score"))
+	if len(scores) >= 4:
+		school['English_test_score'] = scores[0].get_text()
+		school['Math_test_score'] = scores[2].get_text()
 
+
+get_great_schools_info("https://www.greatschools.org/california/san-francisco/6340-Balboa-High-School/", school)
+print school['reviews']
+print school['English_test_score']
+print school['Math_test_score']
+print school.keys()
