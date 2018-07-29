@@ -115,7 +115,4 @@ def get_test_scores(soup, school):
 
 
 get_great_schools_info("https://www.greatschools.org/california/san-francisco/6340-Balboa-High-School/", school)
-print school['reviews']
-print school['English_test_score']
-print school['Math_test_score']
-print school.keys()
+
